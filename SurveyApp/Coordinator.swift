@@ -17,12 +17,8 @@ enum Page: String, Identifiable {
 
 @MainActor
 class Coordinator: ObservableObject {
-    @Published var path = NavigationPath()
-    private let diContainer: DIContainerInterface
     
-    init(diContainer: DIContainerInterface) {
-        self.diContainer = diContainer
-    }
+    @Published var path = NavigationPath()
     
     func push(_ page: Page) {
         path.append(page)
@@ -40,9 +36,9 @@ class Coordinator: ObservableObject {
     func build(_ page: Page) -> some View {
         switch page {
         case .welcome:
-            WelcomeView(viewModel: .init(questionsManager: self.diContainer.questionsManager))
+            WelcomeView(viewModel: WelcomeViewModel(questionsManager: DIContainer.shared.resolveDependency()))
         case .question:
-            QuestionView(viewModel: .init(questionsManager: self.diContainer.questionsManager))
+            QuestionView(viewModel: .init(questionsManager: DIContainer.shared.resolveDependency()))
         }
     }
 }

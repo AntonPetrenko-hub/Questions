@@ -9,9 +9,11 @@ import Foundation
 
 @MainActor
 class QuestionViewModel: ObservableObject {
-    @Published var enteredText: String = ""
+    
+    @Published var enteredText = ""
     @Published var screenState: QuestionViewState = .loaded
     @Published var toastIsShown = false
+    
     private var kindOfToast: Toast.KindOfToast = .success
     private let questionsManager: QuestionsManagerInterface
     

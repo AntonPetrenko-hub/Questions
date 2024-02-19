@@ -9,8 +9,10 @@ import Foundation
 
 @MainActor
 class WelcomeViewModel: ObservableObject {
+    
     @Published var screenState: WelcomeScreenState = .loaded
-    let questionsManager: QuestionsManagerInterface
+    
+    private let questionsManager: QuestionsManagerInterface
     
     init(questionsManager: QuestionsManagerInterface) {
         self.questionsManager =  questionsManager
