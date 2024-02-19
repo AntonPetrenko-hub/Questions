@@ -81,7 +81,7 @@ struct QuestionView: View {
                 .navigationTitle(viewModel.navTitle)
             }
         }
-        .toast(isShowing: $viewModel.toastIsShown, config: viewModel.getToastConfig())
+       
     }
     
     private var loader: some View {

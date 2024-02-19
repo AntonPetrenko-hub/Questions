@@ -9,17 +9,13 @@ import SwiftUI
 
 struct WelcomeView: View {
     @EnvironmentObject private var coordinator: Coordinator
-    @StateObject private var viewModel: WelcomeViewModel
+    @StateObject var viewModel: WelcomeViewModel
     
     private struct Constants {
         static let navigationTitle: String = "Welcome!"
         static let buttonTitle: String = "Start survey"
         static let errorTitle: String = "Something went wrong"
         static let errorButtonTitle: String = "Try again"
-    }
-    
-    init(viewModel: WelcomeViewModel) {
-        self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {

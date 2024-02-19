@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CoordinatorView: View {
     
-    @StateObject private var coordinator = Coordinator(diContainer: DIContainer(surveyService: SurveyService(host: URL(string: "https://xm-assignment.web.app/")!, session: URLSession.shared)))
+    @StateObject private var coordinator = Coordinator()
     
     var body: some View {
         NavigationStack(path: $coordinator.path) {
